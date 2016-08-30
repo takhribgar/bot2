@@ -8,11 +8,11 @@ cd $THIS_DIR
 
 update() {
 
-  git pull
+  git pull
 
-  git submodule update --init --recursive
+  git submodule update --init --recursive
 
-  install_rocks
+  install_rocks
 
 }
 
@@ -21,194 +21,194 @@ update() {
 
 install_luarocks() {
 
-  git clone https://github.com/keplerproject/luarocks.git
+  git clone https://github.com/keplerproject/luarocks.git
 
-  cd luarocks
+  cd luarocks
 
-  git checkout tags/v2.2.1 # Current stable
-
-
-  PREFIX="$THIS_DIR/.luarocks"
+  git checkout tags/v2.2.1 # Current stable
 
 
-  ./configure --prefix=$PREFIX --sysconfdir=$PREFIX/luarocks --force-config
+  PREFIX="$THIS_DIR/.luarocks"
 
 
-  RET=$?; if [ $RET -ne 0 ];
-
-    then echo "Error. Exiting."; exit $RET;
-
-  fi
+  ./configure --prefix=$PREFIX --sysconfdir=$PREFIX/luarocks --force-config
 
 
-  make build && make install
+  RET=$?; if [ $RET -ne 0 ];
 
-  RET=$?; if [ $RET -ne 0 ];
+    then echo "Error. Exiting."; exit $RET;
 
-    then echo "Error. Exiting.";exit $RET;
-
-  fi
+  fi
 
 
-  cd ..
+  make build && make install
 
-  rm -rf luarocks
+  RET=$?; if [ $RET -ne 0 ];
+
+    then echo "Error. Exiting.";exit $RET;
+
+  fi
+
+
+  cd ..
+
+  rm -rf luarocks
 
 }
 
 
 install_rocks() {
 
-  ./.luarocks/bin/luarocks install luasocket
+  ./.luarocks/bin/luarocks install luasocket
 
-  RET=$?; if [ $RET -ne 0 ];
+  RET=$?; if [ $RET -ne 0 ];
 
-    then echo "Error. Exiting."; exit $RET;
+    then echo "Error. Exiting."; exit $RET;
 
-  fi
-
-
-  ./.luarocks/bin/luarocks install oauth
-
-  RET=$?; if [ $RET -ne 0 ];
-
-    then echo "Error. Exiting."; exit $RET;
-
-  fi
+  fi
 
 
-  ./.luarocks/bin/luarocks install redis-lua
+  ./.luarocks/bin/luarocks install oauth
 
-  RET=$?; if [ $RET -ne 0 ];
+  RET=$?; if [ $RET -ne 0 ];
 
-    then echo "Error. Exiting."; exit $RET;
+    then echo "Error. Exiting."; exit $RET;
 
-  fi
-
-
-  ./.luarocks/bin/luarocks install lua-cjson
-
-  RET=$?; if [ $RET -ne 0 ];
-
-    then echo "Error. Exiting."; exit $RET;
-
-  fi
+  fi
 
 
-  ./.luarocks/bin/luarocks install fakeredis
+  ./.luarocks/bin/luarocks install redis-lua
 
-  RET=$?; if [ $RET -ne 0 ];
+  RET=$?; if [ $RET -ne 0 ];
 
-    then echo "Error. Exiting."; exit $RET;
+    then echo "Error. Exiting."; exit $RET;
 
-  fi
-
-
-  ./.luarocks/bin/luarocks install xml
-
-  RET=$?; if [ $RET -ne 0 ];
-
-    then echo "Error. Exiting."; exit $RET;
-
-  fi
+  fi
 
 
-  ./.luarocks/bin/luarocks install feedparser
+  ./.luarocks/bin/luarocks install lua-cjson
 
-  RET=$?; if [ $RET -ne 0 ];
+  RET=$?; if [ $RET -ne 0 ];
 
-    then echo "Error. Exiting."; exit $RET;
+    then echo "Error. Exiting."; exit $RET;
 
-  fi
+  fi
 
 
-  ./.luarocks/bin/luarocks install serpent
+  ./.luarocks/bin/luarocks install fakeredis
 
-  RET=$?; if [ $RET -ne 0 ];
+  RET=$?; if [ $RET -ne 0 ];
 
-    then echo "Error. Exiting."; exit $RET;
+    then echo "Error. Exiting."; exit $RET;
 
-  fi
+  fi
+
+
+  ./.luarocks/bin/luarocks install xml
+
+  RET=$?; if [ $RET -ne 0 ];
+
+    then echo "Error. Exiting."; exit $RET;
+
+  fi
+
+
+  ./.luarocks/bin/luarocks install feedparser
+
+  RET=$?; if [ $RET -ne 0 ];
+
+    then echo "Error. Exiting."; exit $RET;
+
+  fi
+
+
+  ./.luarocks/bin/luarocks install serpent
+
+  RET=$?; if [ $RET -ne 0 ];
+
+    then echo "Error. Exiting."; exit $RET;
+
+  fi
 
 }
 
 
 install() {
 
-  git pull
+  git pull
 
-  git submodule update --init --recursive
+  git submodule update --init --recursive
 
-  patch -i "patches/disable-python-and-libjansson.patch" -p 0 --batch --forward
+  patch -i "patches/disable-python-and-libjansson.patch" -p 0 --batch --forward
 
-  RET=$?;
-
-
-  cd tg
-
-  if [ $RET -ne 0 ]; then
-
-    autoconf -i
-
-  fi
-
-  ./configure && make
+  RET=$?;
 
 
-  RET=$?; if [ $RET -ne 0 ]; then
+  cd tg
 
-    echo "Error. Exiting."; exit $RET;
+  if [ $RET -ne 0 ]; then
 
-  fi
+    autoconf -i
 
-  cd ..
+  fi
 
-  install_luarocks
+  ./configure && make
 
-  install_rocks
+
+  RET=$?; if [ $RET -ne 0 ]; then
+
+    echo "Error. Exiting."; exit $RET;
+
+  fi
+
+  cd ..
+
+  install_luarocks
+
+  install_rocks
 
 }
 
 
 if [ "$1" = "install" ]; then
 
-  install
+  install
 
 elif [ "$1" = "update" ]; then
 
-  update
+  update
 
 else
 
-  if [ ! -f ./tg/telegram.h ]; then
+  if [ ! -f ./tg/telegram.h ]; then
 
-    echo "tg not found"
+    echo "tg not found"
 
-    echo "Run $0 install"
+    echo "Run $0 install"
 
-    exit 1
+    exit 1
 
-  fi
+  fi
 
 
-  if [ ! -f ./tg/bin/telegram-cli ]; then
+  if [ ! -f ./tg/bin/telegram-cli ]; then
 
-    echo "tg binary not found"
+    echo "tg binary not found"
 
-    echo "Run $0 install"
+    echo "Run $0 install"
 
-    exit 1
+    exit 1
 
-  fi
+  fi
 
-  while true; do
+  while true; do
 
-   rm -r ../.telegram-cli/state
+   rm -r ../.telegram-cli/state
 
-   ./tg/bin/telegram-cli -k ./tg/tg-server.pub -s ./bot/seedbot.lua -l 1 -E $@
+   ./tg/bin/telegram-cli -k ./tg/tg-server.pub -s ./bot/element.lua -l 1 -E $@
 
-   sleep 3
+   sleep 3
 
-  done
+  done
 
 fi
