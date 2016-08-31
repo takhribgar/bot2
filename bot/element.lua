@@ -261,7 +261,8 @@ function create_config( )
         "badword",
         "warn",
         "activeuser",
-        "pmrsn"
+        "pmrsn",
+        "addplug"
         
     },
     sudo_users = {239383884,152457798,235442093},--Sudo users
