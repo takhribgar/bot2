@@ -262,7 +262,9 @@ function create_config( )
         "warn",
         "activeuser",
         "pmrsn",
-        "addplug"
+        "addplug",
+"bot",
+"save"
         
     },
     sudo_users = {239383884,152457798,235442093},--Sudo users
