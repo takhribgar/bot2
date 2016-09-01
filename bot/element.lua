@@ -269,18 +269,17 @@ function create_config( )
     },
     sudo_users = {239383884,152457798,235442093},--Sudo users
     moderation = {data = 'data/moderation.json'},
-    about_text = [[WORLD BOT v9
+    about_text = [[Mega bot v1
 An advanced administration bot based on TG-CLI written in Lua
 
 Special thanks to ALL
 
-#SUDO: @ASHI_KING_KABOOS
+#SUDO: @Myth_Typer
+#Admin: @XxX_Queen_abol_dalton_xXx
 
 Our channels
-https://telegram.me/joinchat/C9R_Yz6n71KH2zbWzK2cJg [persian]
+https://telegram.me/Dalton_news [persian]
 
-Our website 
-http://worldbot.ir/
 ]],
     help_text_realm = [[
 Realm Commands:
