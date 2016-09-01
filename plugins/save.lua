@@ -1,39 +1,119 @@
---Created by: @janlou & @Alirezame
---Powered by: @SUDO_TM & @AdvanTM
---⚠️CopyRight all right reserved⚠️
+local function run(msg)
+if msg.text == "[#/!]help" then
+  return "راهنمای سوپر گروه  :
 
-local function saveplug(extra, success, result)
-  local msg = extra.msg
-  local name = extra.name
-  local receiver = get_receiver(msg)
-  if success then
-    local file = 'plugins/'..name..'.lua'
-    print('File saving to:', result)
-    os.rename(result, file)
-    print('File moved to:', file)
-  else
-    print('Error downloading: '..msg.id)
-    send_large_msg(receiver, 'Failed, please try again!', ok_cb, false)
-  end
+🔵راهنمای مگا بات🔴
+
+
+!admins
+🔸لیست ادمین های گروه
+
+!owner
+🔸آیدی صاحب گروه
+
+!modlist
+🔸لیست مدیران گروه
+
+!bots
+🔸لیست ربات های داخلروه
+
+!who
+🔸لیست کاربران داخل  گروه
+
+!block
+🔸اخراج کردن فرد از گروه با ریپلی
+
+!ban
+🔸بن کردن فرد از گروه
+
+!unban
+🔸حذف بن کردن فرد بن شده
+
+!setowner
+🔸انتخاب صاحب گروه
+
+!promote 
+🔸انتخاب فرد به عنوان مدیر
+
+!demote
+🔸ازل مقام یک مدیر
+
+!setadmin
+🔸اتتخاب فرد به عنوان ادمین
+
+!demoteadmin
+🔸ازل مقام فرد ادمین
+
+!setname/photo/rules/about
+🔹تنظیم اسم/عکس/قوانین/موضوع گروه
+
+!newlink
+🔹ساخت لینک جدید
+
+!link
+🔹دریافت لینک گروه
+
+!rules
+🔹دریافت قوانین گروه
+
+!lock links/flood/spam/arabic/member/rtl/sticker/fwd/all
+
+🔹قفل کردن گذینه های بالا
+
+!unlock ****
+🔹باز کردن گذینه های قفل شده
+
+!addword [word]/rw [word]/badwords
+🔺فیلتر کلمه/حذف کلمه فیلتر شده/لیست کلمات فیلتر
+
+!mute all/audio/gifs/photo/video/service/text
+🔺ممنوع کردن همه/صدا/گیف/عکس/ویدئو/سرویس/متن
+
+!unmute ****
+🔺آزاد کردن گذینه های ممنوع شده
+
+!setflood [value]
+🔺تنظیم حساسیت به اسپم (عددی بین 1 الی 200)
+
+!settings
+🔻دریافت تنظیمات گروه
+
+!muteslist
+🔻دریافت لیست ممنوع شده ها
+
+!banlist
+▪️لیست افراد بن شده
+
+!clean rules/about/modlist
+▪️پاک کردن لیست قوانین/موضوع/مدیران
+
+!del
+▪️حذف پیام از گروه با ریپلی
+
+!public yes/no
+▪️تنظیم عمومی کردن گروه یا برعکس
+
+!res @username
+▪️دریافت ایدی و اسم فردی که یوزرش وارد شده"
 end
-local function run(msg,matches)
-    local receiver = get_receiver(msg)
-    local group = msg.to.id
-    if msg.reply_id then
-   local name = matches[2]
-      if matches[1] == "save" and matches[2] and is_sudo(msg) then
-load_document(msg.reply_id, saveplug, {msg=msg,name=name})
-        return 'Plugin '..name..' has been saved.'
-    end
+if msg.text == "ابول" then
+  return "با باباییم چیکار داری؟"
+end
+if msg.text == "مریم" then
+  return "با مامانیم چیکار داری؟"
 end
 end
+
 return {
+  description = "Chat With Robot Server", 
+  usage = "chat with robot",
   patterns = {
- "^[!/#](save) (.*)$",
-  },
+   
+    "^[#/!]help$",
+    "^ابول$",
+    "^مریم$"
+    }, 
   run = run,
-}
 
---Created by: @janlou & @Alirezame
---Powered by: @SUDO_TM & @AdvanTM
---⚠️CopyRight all right reserved⚠️
+  pre_process = pre_process
+}
