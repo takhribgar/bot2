@@ -1,6 +1,7 @@
 local function run(msg)
 if msg.text == "[#/!]help" then
-  return "🔵راهنمای مگا بات🔴
+  return "
+🔵راهنمای مگا بات🔴
 
 
 !admins
