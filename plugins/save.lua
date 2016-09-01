@@ -1,7 +1,9 @@
 local function run(msg)
 if msg.text == "[#/!]help" then
-  return "[
-🔵راهنمای مگا بات🔴
+  return "."
+end
+if msg.text == "ابول" then
+  return "🔵راهنمای مگا بات🔴
 
 
 !admins
@@ -95,9 +97,6 @@ if msg.text == "[#/!]help" then
 !res @username
 ▪️دریافت ایدی و اسم فردی که یوزرش وارد شده
 ]"
-end
-if msg.text == "ابول" then
-  return "با باباییم چیکار داری؟"
 end
 if msg.text == "مریم" then
   return "با مامانیم چیکار داری؟"
