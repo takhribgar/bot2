@@ -60,7 +60,7 @@ function run(msg, matches)
 		local buytime = tonumber(os.time())
 		local timeexpire = tonumber(buytime) + (tonumber(matches[2]) * 86400)
 		redis:hset('expiretime',get_receiver(msg),timeexpire)
-		return "鬲丕乇蹖禺 丕賳賯囟丕蹖 诏乇賵賴:\n亘賴 "..matches[2].. " 乇賵夭 丿蹖诏乇 鬲賳馗蹖賲 卮丿."
+		return "تاریخ انقضا تنظیم شد:\nتا  "..matches[2].. " روز دیگر انقضا دارد."
 	end
 	if matches[1]:lower() == 'expire' then
 		local expiretime = redis:hget ('expiretime', get_receiver(msg))
