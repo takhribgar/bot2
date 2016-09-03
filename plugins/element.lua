@@ -22,32 +22,32 @@ local function pre_process(msg)
 	end
 	if tonumber(timetoexpire) == 0 then
 		if redis:hget('expires0',msg.to.id) then return msg end
-		send_large_msg(get_receiver(msg), '0 乇賵夭 鬲丕 倬丕蹖丕賳 鬲丕乇蹖禺 丕賳賯囟丕蹖 诏乇賵賴 亘丕賯蹖 賲丕賳丿賴 丕爻鬲\n賳爻亘鬲 亘賴 鬲賲丿蹖丿 丕賯丿丕賲 讴賳蹖丿.')
+		send_large_msg(get_receiver(msg), '0 روز تا پایان انقضای بات.')
 		redis:hset('expires0',msg.to.id,'5')
 	end
 	if tonumber(timetoexpire) == 1 then
 		if redis:hget('expires1',msg.to.id) then return msg end
-		send_large_msg(get_receiver(msg), '1 乇賵夭 鬲丕 倬丕蹖丕賳 鬲丕乇蹖禺 丕賳賯囟丕蹖 诏乇賵賴 亘丕賯蹖 賲丕賳丿賴 丕爻鬲\n賳爻亘鬲 亘賴 鬲賲丿蹖丿 丕賯丿丕賲 讴賳蹖丿.')
+		send_large_msg(get_receiver(msg), '1 روز تا پایان انقضای بات.')
 		redis:hset('expires1',msg.to.id,'5')
 	end
 	if tonumber(timetoexpire) == 2 then
 		if redis:hget('expires2',msg.to.id) then return msg end
-		send_large_msg(get_receiver(msg), '2 乇賵夭 鬲丕 倬丕蹖丕賳 鬲丕乇蹖禺 丕賳賯囟丕蹖 诏乇賵賴 亘丕賯蹖 賲丕賳丿賴 丕爻鬲\n賳爻亘鬲 亘賴 鬲賲丿蹖丿 丕賯丿丕賲 讴賳蹖丿.')
+		send_large_msg(get_receiver(msg), '2 روز تا پایان انقضای بات.')
 		redis:hset('expires2',msg.to.id,'5')
 	end
 	if tonumber(timetoexpire) == 3 then
 		if redis:hget('expires3',msg.to.id) then return msg end
-		send_large_msg(get_receiver(msg), '3 乇賵夭 鬲丕 倬丕蹖丕賳 鬲丕乇蹖禺 丕賳賯囟丕蹖 诏乇賵賴 亘丕賯蹖 賲丕賳丿賴 丕爻鬲\n賳爻亘鬲 亘賴 鬲賲丿蹖丿 丕賯丿丕賲 讴賳蹖丿.')
+		send_large_msg(get_receiver(msg), '3 روز تا پایان انقضای بات.')
 		redis:hset('expires3',msg.to.id,'5')
 	end
 	if tonumber(timetoexpire) == 4 then
 		if redis:hget('expires4',msg.to.id) then return msg end
-		send_large_msg(get_receiver(msg), '4 乇賵夭 鬲丕 倬丕蹖丕賳 鬲丕乇蹖禺 丕賳賯囟丕蹖 诏乇賵賴 亘丕賯蹖 賲丕賳丿賴 丕爻鬲\n賳爻亘鬲 亘賴 鬲賲丿蹖丿 丕賯丿丕賲 讴賳蹖丿.')
+		send_large_msg(get_receiver(msg), '4 روز تا پایان انقضای بات.')
 		redis:hset('expires4',msg.to.id,'5')
 	end
 	if tonumber(timetoexpire) == 5 then
 		if redis:hget('expires5',msg.to.id) then return msg end
-		send_large_msg(get_receiver(msg), '5 乇賵夭 鬲丕 倬丕蹖丕賳 鬲丕乇蹖禺 丕賳賯囟丕蹖 诏乇賵賴 亘丕賯蹖 賲丕賳丿賴 丕爻鬲\n賳爻亘鬲 亘賴 鬲賲丿蹖丿 丕賯丿丕賲 讴賳蹖丿.')
+		send_large_msg(get_receiver(msg), '5 روز تا پایان انقضای بات.')
 		redis:hset('expires5',msg.to.id,'5')
 	end
 end
