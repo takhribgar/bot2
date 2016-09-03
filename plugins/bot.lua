@@ -1,1 +1,1 @@
-Delete plugin
+-- Delete plugin
