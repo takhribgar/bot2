@@ -66,7 +66,7 @@ function run(msg, matches)
 		local expiretime = redis:hget ('expiretime', get_receiver(msg))
 		if not expiretime then return '鬲丕乇蹖禺 爻鬲 賳卮丿賴 丕爻鬲' else
 			local now = tonumber(os.time())
-			return (math.floor((tonumber(expiretime) - tonumber(now)) / 86400) + 1) .. " 乇賵夭 丿蹖诏乇"
+			return (math.floor((tonumber(expiretime) - tonumber(now)) / 86400) + 1) .. " روز دیگر تا پایان انقضا"
 		end
 	end
 
