@@ -5,8 +5,8 @@ local function run(msg, matches)
     local data = load_data(_config.moderation.data)
     if data[tostring(msg.to.id)] then
         if data[tostring(msg.to.id)]['settings'] then
-            if data[tostring(msg.to.id)]['settings']['operator'] then
-                lock_operator = data[tostring(msg.to.id)]['settings']['operator']
+            if data[tostring(msg.to.id)]['settings']['etehad'] then
+                lock_operator = data[tostring(msg.to.id)]['settings']['etehad']
             end
         end
     end
