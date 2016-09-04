@@ -18,7 +18,7 @@ chat_del_user('chat#id'..msg.to.id, 'user#id'..msg.from.id, ok_cb, true)
 end
     
 return {patterns = {
-😞(.+)",
+ "😞(.+)",
  "(.+)😞",
  "😐(.+)",
  "(.+)😐",
