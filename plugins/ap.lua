@@ -1,4 +1,4 @@
-  GNU nano 2.2.6 File: ...i/a/plugins/addplug.lua Modified  
+--  GNU nano 2.2.6 File: ...i/a/plugins/addplug.lua Modified  
                                                             
 local function run(msg, matches)                            
   if is_sudo(msg) then                                      
