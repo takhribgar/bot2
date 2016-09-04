@@ -28,7 +28,8 @@ local function check_member_super(cb_extra, success, result)
 		  lock_rtl = 'no',
 		  lock_tgservice = 'yes',
 		  lock_contacts = 'no',
-		  strict = 'no'
+		  strict = 'no',
+                  lock_fosh = 'yes'
         }
       }
       save_data(_config.moderation.data, data)
