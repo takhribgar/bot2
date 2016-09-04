@@ -1,76 +1,85 @@
-local function run(msg, matches)
-    if is_owner(msg) then
-        return
-    end
-    local data = load_data(_config.moderation.data)
-    if data[tostring(msg.to.id)] then
-        if data[tostring(msg.to.id)]['settings'] then
-            if data[tostring(msg.to.id)]['settings']['fosh'] then
-                lock_fosh = data[tostring(msg.to.id)]['settings']['fosh']
-            end
-        end
-    end
-    local chat = get_receiver(msg)
-    local user = "user#id"..msg.from.id
-    if lock_fosh == "yes" then
-        send_large_msg(chat, 'بدلیل فحاشی از گروه سیکتیر شدید')
-        chat_del_user(chat, user, ok_cb, true)
-    end
+
+
+
+local data = load_data(_config.moderation.data)
+
+
+if data[tostring(msg.to.id)]['settings']['english'] == 'yes' then
+
+
+
+if not is_momod(msg) then
+
+
+
+chat_del_user('chat#id'..msg.to.id, 'user#id'..msg.from.id, ok_cb, true)
+
+local msg = 'You cannot use English words herer . Bye ! '
+
+local receiver = msg.to.id
+
+send_large_msg('chat#id'..receiver, msgads.."\n", ok_cb, false)
+
+
 end
-    
+
+    end
+
+end
+
+
 return {patterns = {
-    "کیر",
-    "[Kk]ir",
-    "کص",
-    "کس",
-    "جنده",
-    "لاشی",
-    "کونی",
-    "کس(.*)",
-    "کون(.*)",
-    "کیر(.*)",
-    "ممه(.*)",
-    "سکس(.*)",
-    "سیکتیر(.*)",
-    "قهبه(.*)",
-    "بسیک(.*)",
-    "بیناموس(.*)",
-    "اوبی(.*)",
-    "کونی(.*)",
-    "بیشرف(.*)",
-    "کس ننه(.*)",
-    "ساک(.*)",
-    "کیری(.*)",
-    "خار کوسه(.*)",
-    "ننه(.*)",
-    "خواهرتو(.*)",
-    "سکسی(.*)",
-    "کسکش(.*)",
-    "سیک تیر(.*)",
-    "گاییدم(.*)",
-    "میگام(.*)",
-    "میگامت(.*)",
-    "بسیک(.*)",
-    "خواهرت(.*)",
-    "خارتو(.*)",
-    "کونت(.*)",
-    "کوست(.*)",
-    "شورت(.*)",
-    "سگ(.*)",
-    "کیری(.*)",
-    "دزد(.*)",
-    "ننت(.*)",
-    "ابمو(.*)",
-    "سگ",
-    "مادر سگ",
-    "[Kk]os",
-    "[Jj]ende",
-    "[Ll]ashi",   
-    "[Kk]ooni",
-    "[Hh]aroom",
-    "[Ff]uck",
-    "[Ff]cker",
-    "suck"
-    },
-    run = run
-    }
+
+"[Aa](.*)",
+
+"[Bb](.*)",
+
+"[Cc](.*)",
+
+"[Dd](.*)",
+
+"[Ee](.*)",
+
+"[Ff](.*)",
+
+"[Gg](.*)",
+
+"[Hh](.*)",
+
+"[Ii](.*)",
+
+"[Jj](.*)",
+
+"[Kk](.*)",
+
+"[Ll](.*)",
+
+"[Mm](.*)",
+
+"[Nn](.*)",
+
+"[Oo](.*)",
+
+"[Pp](.*)",
+
+"[Qq](.*)",
+
+"[Rr](.*)",
+
+"[Ss](.*)",
+
+"[Tt](.*)",
+
+"[Uu](.*)",
+
+"[Vv](.*)",
+
+"[Ww](.*)",
+
+"[Xx](.*)",
+
+"[Yy](.*)",
+
+"[Zz](.*)",
+
+}, run = run}
