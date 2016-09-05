@@ -206,7 +206,7 @@ if to == 'user' or service or is_admin1(msg) and to == "chat" or to == "channel"
 		send_large_msg("user#id"..user_id, "Added you to chat:\n\n"..group_name.." (ID:"..msg.to.id..")")
 	end
 
-	if matches[1] == 'help' and msg.to.type == 'user' or matches[1] == 'pmhelp' and is_admin1(msg) and msg.to.type ~= 'user' then
+	if matches[1] == 'help' and msg.to.type == 'user' or matches[1] == 'help' and is_admin1(msg) and msg.to.type ~= 'user' then
       	savelog(msg.to.id, name_log.." ["..msg.from.id.."] used pm help")
 		text = "Welcome to Megabot!\n\nTo get a list of Mega groups use /chats or /chatlist for a document list of chats.\n\nTo get a new Mega bot group, contact a support group:\n\nFor English support, use: @myth_typer\n\nFor Persian support, use: @Myth_typer \n\nFor more information, check out our channels:\n\n@Dalton_news [Persian]\n\nThanks for using @Tele_Mega!"
      	return text
@@ -243,8 +243,8 @@ end
 
 return {
     patterns = {
-	"^[#!/](help)$",
 	"^[#!/](pmhelp)$",
+	"^[#!/](help)$",
 	"^[#!/](superhelp)$",
     "^[#!/](chats)$",
     "^[#!/](chatlist)$",
