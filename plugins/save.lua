@@ -6,7 +6,7 @@ if msg.text == "مریم" then
   return "با مامانیم چیکار داری؟"
 end
 if msg.text == "/help" then
-  return "Test/n/nTest1"
+  return "Test\n\nTest1"
 end
 end
 
