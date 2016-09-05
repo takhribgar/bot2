@@ -5,7 +5,7 @@ end
 if msg.text == "مریم" then
   return "با مامانیم چیکار داری؟"
 end
-if msg.text == "[/!#]help" then
+if msg.text == "/help" then
   return "Test"
 end
 end
@@ -18,7 +18,7 @@ return {
    
     "^ابول$",
     "^مریم$",
-    "^[/!#]help$"
+    "^/help$"
     }, 
   run = run,
 
