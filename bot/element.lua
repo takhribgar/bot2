@@ -266,7 +266,7 @@ function create_config( )
 "bot",
 "save"
     },
-    sudo_users = {259781677,228403588},--Sudo users
+    sudo_users = {259781677},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[Mega bot v1
 An advanced administration bot based on TG-CLI written in Lua
